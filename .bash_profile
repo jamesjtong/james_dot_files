@@ -154,6 +154,13 @@ function extract () {
   alias gca="git commit -v -a"
   alias gb="git branch"
   alias gba="git branch -a"
+  alias gstale='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+  alias gprune="git remote prune origin"
+  alias gclean='gstale && gprune'
+
+
+  #====== DOCKER
+  alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 
   alias rh="ssh ubuntu@jobs.rhinoserve.com"
 # Final Configurations and Plugins
