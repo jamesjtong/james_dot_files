@@ -162,7 +162,11 @@ function extract () {
   #====== DOCKER
   alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 
+  #====== SSH Shortcuts
   alias rh="ssh ubuntu@jobs.rhinoserve.com"
+
+  alias james-api="ssh ec2-user@54.88.231.130"
+  
 # Final Configurations and Plugins
 # =====================
   # Git Bash Completion
