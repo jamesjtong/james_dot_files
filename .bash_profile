@@ -9,11 +9,13 @@ export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
 
 # Configuring Our Prompt
 # ======================
-
   # This function is called in your prompt to output your active git branch.
   function parse_git_branch {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
   }
+  if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+  fi
 
   # This function builds your prompt. It is called below
   function prompt {
@@ -39,7 +41,6 @@ export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
   # These variables tell your shell where they can find certain
   # required libraries so other programs can reliably call the variable name
   # instead of a hardcoded path.
-
     # NODE_PATH
     # Node Path from Homebrew I believe
     # export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
@@ -47,11 +48,13 @@ export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
     # PYTHON_SHARE
     # Python Shared Path from Homebrew I believe
     export PYTHON_SHARE='/usr/local/share/python'
-    export NODE_ENV='production'
+    export NODE_ENV='development'
     # Those NODE & Python Paths won't break anything even if you
     # don't have NODE or Python installed. Eventually you will and
     # then you don't have to update your bash_profile
-
+    export DOCKER_TLS_VERIFY=1
+    export DOCKER_HOST=tcp://192.168.59.103:2376
+    export DOCKER_CERT_PATH=/Users/james/.boot2docker/certs/boot2docker-vm
   # Configurations
 
     # GIT_MERGE_AUTO_EDIT
@@ -65,7 +68,7 @@ export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
     export SVN_EDITOR="subl -w"
     export GIT_EDITOR="subl -w"
     export EDITOR="subl -w"
-
+    export RAILS_ENV="development"
   # Paths
 
     # The USR_PATHS variable will just store all relevant /usr paths for easier usage
@@ -157,10 +160,13 @@ function extract () {
   alias gstale='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
   alias gprune="git remote prune origin"
   alias gclean='gstale && gprune'
+  alias grmnew='git clean -fd'
 
 
   #====== DOCKER
-  alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+  # alias dip="boot2docker ip"
+  # alias dra="docker rm -f $(docker ps -a -q)"
+
 
   #====== SSH Shortcuts
   alias rh="ssh ubuntu@jobs.rhinoserve.com"
