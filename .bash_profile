@@ -4,6 +4,7 @@ JAMES_VAR=5
 CDPATH=/Users/james/Development/
 export PATH="$PATH:/usr/local/share/npm/bin"
 export PATH="$PATH:/Users/james/npm/bin/"
+#export PATH="$PATH:/usr/local/bin/mongod" homebrew already links it
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
 
@@ -52,9 +53,12 @@ export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
     # Those NODE & Python Paths won't break anything even if you
     # don't have NODE or Python installed. Eventually you will and
     # then you don't have to update your bash_profile
-    export DOCKER_TLS_VERIFY=1
-    export DOCKER_HOST=tcp://192.168.59.103:2376
-    export DOCKER_CERT_PATH=/Users/james/.boot2docker/certs/boot2docker-vm
+
+    export DOCKER_TLS_VERIFY="1"
+    export DOCKER_HOST="tcp://192.168.99.100:2376"
+    export DOCKER_CERT_PATH="/Users/james/.docker/machine/machines/dev1"
+    export DOCKER_MACHINE_NAME="dev1"
+
   # Configurations
 
     # GIT_MERGE_AUTO_EDIT
@@ -64,11 +68,13 @@ export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
     # Editors
     # Tells your shell that when a program requires various editors, use sublime.
     # The -w flag tells your shell to wait until sublime exits
-    export VISUAL="subl -w"
-    export SVN_EDITOR="subl -w"
-    export GIT_EDITOR="subl -w"
-    export EDITOR="subl -w"
+    
+    export SVN_EDITOR="mvim -f"
+    export GIT_EDITOR="mvim -f"
+    export EDITOR="mvim -f"
+    export VISUAL=$EDITOR
     export RAILS_ENV="development"
+    export MYVIMRC_AFTER="/Users/james/.vimrc.after"
   # Paths
 
     # The USR_PATHS variable will just store all relevant /usr paths for easier usage
@@ -142,17 +148,46 @@ function extract () {
     fi
 }
 
+#turn docker-machine dev1 and controltower on
+function dmo {
+  machine_status=$(docker-machine ls | grep dev1 | awk '{print $3}')
+  if [ $machine_status == Stopped ] || [ $machine_status == Saved ]
+  then
+    docker-machine start dev1
+
+    ctrltower_status=$(docker ps | grep ctrltower_api | awk '{print "on"}')
+    if [ $ctrltower_status == on ]
+    then
+      echo 'api_ctrltower is already on'
+    else
+      docker start ctrltower_db local_memcached ctrltower_api
+    fi
+  else
+    echo "docker-machine is already on"
+    ctrltower_status=$(docker ps | grep ctrltower_api | awk '{print "on"}')
+
+    if [ $ctrltower_status == on ]
+    then
+      echo 'ctrltower_api is already on'
+    else
+      echo 'starting ctrltower_api'
+      docker start ctrltower_db local_memcached ctrltower_api
+    fi
+  fi
+}
+
 # Aliases
 # =====================
   # LS
   alias l='ls -lah'
-
+  alias jtunnel="ssh -f -i ~/.ssh/id_rsa.pub ubuntu@jobs.rhinoserve.com -L 3310:master.db.int.rhinoserve.com:3306 -N"
   # Git
   alias gst="git status"
   alias gs="git status"
   alias gl="git pull"
   alias gp="git push"
-  alias gd="git diff | mate"
+  alias ga="git add"
+  alias gd="git diff"
   alias gc="git commit -v"
   alias gca="git commit -v -a"
   alias gb="git branch"
@@ -186,3 +221,4 @@ function extract () {
   # Mandatory loading of RVM into the shell
   # This must be the last line of your bash_profile always
   [[ -s "/Users/$USER/.rvm/scripts/rvm" ]] && source "/Users/$USER/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+
