@@ -56,7 +56,7 @@ export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
 
     export DOCKER_TLS_VERIFY="1"
     export DOCKER_HOST="tcp://192.168.99.100:2376"
-    export DOCKER_CERT_PATH="/Users/james/.docker/machine/machines/dev1"
+    export DOCKER_CERT_PATH="$HOME/.docker/machine/machines/dev1"
     export DOCKER_MACHINE_NAME="dev1"
 
   # Configurations
@@ -73,8 +73,8 @@ export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
     export GIT_EDITOR="mvim -f"
     export EDITOR="mvim -f"
     export VISUAL=$EDITOR
-    export RAILS_ENV="development"
-    export MYVIMRC_AFTER="/Users/james/.vimrc.after"
+    export MYVIMRC_AFTER="$HOME/.vimrc.after"
+    export MYVIMRC="$HOME/james_dot_files/.vimrc"
   # Paths
 
     # The USR_PATHS variable will just store all relevant /usr paths for easier usage
@@ -88,7 +88,7 @@ export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
     # storing the binaries (programs) that our system would want.
     # Also, Homebrew adopts this convetion so things installed via Homebrew
     # get symlinked into /usr/local
-    export USR_PATHS="/usr/local:/usr/local/bin:/usr/local/sbin:/usr/bin"
+    export USR_PATHS="/usr/local/bin:/usr/local:/usr/local/sbin:/usr/bin"
 
     # Hint: You can interpolate a variable into a string by using the $VARIABLE notation as below.
 
@@ -176,6 +176,14 @@ function dmo {
   fi
 }
 
+# git clone and cd into dir
+function gclone(){
+    url=$1;
+    reponame=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//');
+    git clone $url $reponame;
+    cd $reponame;
+}
+
 # Aliases
 # =====================
   # LS
@@ -197,6 +205,10 @@ function dmo {
   alias gclean='gstale && gprune'
   alias grmnew='git clean -fd'
 
+  # VAGRANT
+
+  alias vgs='vagrant global-status'
+  alias vagrantr="cd $HOME/cne/adminportal && vagrant up && vagrant provision && cd $HOME/cne/cneapi && vagrant up && vagrant provision && cd $HOME/cne/scene-two-backend && vagrant up && vagrant provision"
 
   #====== DOCKER
   # alias dip="boot2docker ip"

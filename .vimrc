@@ -3,6 +3,7 @@ Helptags
 syntax on
 filetype plugin indent on
 
+
 "SETTINGS
 
 set nocompatible
@@ -38,6 +39,8 @@ nnoremap <leader>n :NERDTreeToggle<ENTER>
 nnoremap <leader>ev :vsplit $MYVIMRC<ENTER>
 nnoremap <leader>sv :source $MYVIMRC<ENTER>
 
+nnoremap <leader>u :UltiSnipsEdit<ENTER>
+
 "PLUGIN SETTINGS
 "================================================================================
 "Ag
@@ -60,3 +63,6 @@ map <Leader>w :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<leader><tab>"
