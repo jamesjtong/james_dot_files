@@ -31,6 +31,8 @@ set statusline+=Line:%l/%L[%p%%]
 set statusline+=Col:%v
 set statusline+=Buf:#%n
 
+set nrformats= "cause vim to treat 0-padded numbers as decimal so <C-A> on 007 is 008 and not 010
+
 "core usage
 inoremap jk <esc>
 let mapleader = ","
@@ -52,7 +54,11 @@ noremap <D-/> :Commentary<ENTER>
 
 "CTRL-P
 let g:ctrlp_map = '<c-p>' 
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+" let g:ctrlp_max_files=0
 
 "NerdTree
 let NERDTreeShowHidden=1 "show hidden files
@@ -66,3 +72,16 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<leader><tab>"
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Vim Vinegar
+let NERDTreeHijackNetrw = 1
