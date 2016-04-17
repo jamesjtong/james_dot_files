@@ -33,6 +33,17 @@ set statusline+=Buf:#%n
 
 set nrformats= "cause vim to treat 0-padded numbers as decimal so <C-A> on 007 is 008 and not 010
 
+"when opening a file, this brings cursor to last time accessed
+autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+
+"map down and up in command mode
+cnoremap <c-n>  <down>
+cnoremap <c-p>  <up>
+
+
 "core usage
 inoremap jk <esc>
 let mapleader = ","
@@ -42,6 +53,16 @@ nnoremap <leader>ev :vsplit $MYVIMRC<ENTER>
 nnoremap <leader>sv :source $MYVIMRC<ENTER>
 
 nnoremap <leader>u :UltiSnipsEdit<ENTER>
+
+"color solarized light
+" syntax enable
+" set background=light
+" colorscheme solarized
+
+"enable solarized dark
+syntax enable
+set background=dark
+colorscheme solarized
 
 "PLUGIN SETTINGS
 "================================================================================
