@@ -208,7 +208,7 @@ function gclone(){
   # VAGRANT
 
   alias vgs='vagrant global-status'
-  alias vagrantr="cd $HOME/cne/adminportal && vagrant up && vagrant provision && cd $HOME/cne/cneapi && vagrant up && vagrant provision && cd $HOME/cne/scene-two-backend && vagrant up && vagrant provision"
+  alias vagrantr="cd $HOME/cne/adminportal && vagrant up && vagrant provision && cd $HOME/cne/cneapi && vagrant up && vagrant provision && cd $HOME/cne/scene-two-backend && vagrant up && vagrant provision && cd $HOME/cne/playerservice && vagrant up && vagrant provision"
 
   #====== DOCKER
   # alias dip="boot2docker ip"
