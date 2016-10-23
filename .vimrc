@@ -19,10 +19,12 @@ set expandtab
 "set showcmd
 
 set cursorline "highlight current line
+set colorcolumn=80 "make a line at vertical length 80
 set wildmenu "show matching autocomplete commands in command mode
 set showmatch "show matching parenthesis/braces
 set nowrap "dont wrap lines
 set backspace=indent,eol,start    " backspace through everything in insert mode
+set ignorecase "ignore case when searching
 
 set laststatus=2 "show status line"
 "status line options
@@ -85,9 +87,10 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 "NerdTree
 let NERDTreeShowHidden=1 "show hidden files
-let NERDTreeIgnore=['\.gitkeep$', '\.DS_Store', '\.swp$'] "ignore specific filetypes by NERDTree
+let NERDTreeIgnore=['\.gitkeep$', '\.DS_Store', '\.swp$', '\.swo$'] "ignore specific filetypes by NERDTree
 
 " RSpec.vim mappings
+let g:rspec_runner = "os_x_iterm2"
 map <Leader>w :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
@@ -107,6 +110,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_quiet_messages = { "level" : "warnings" }
 let g:syntastic_html_tidy_ignore_errors = [ '<template> is not recognized!' ]
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Vim Vinegar
 let NERDTreeHijackNetrw = 1
