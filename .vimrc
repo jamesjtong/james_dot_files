@@ -68,6 +68,9 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+"put swp in ~/.vim instead of project dir
+set dir=~/.vim
+
 "PLUGIN SETTINGS
 "================================================================================
 "Ag

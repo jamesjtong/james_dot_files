@@ -54,10 +54,10 @@ export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
     # don't have NODE or Python installed. Eventually you will and
     # then you don't have to update your bash_profile
 
-    export DOCKER_TLS_VERIFY="1"
-    export DOCKER_HOST="tcp://192.168.99.100:2376"
-    export DOCKER_CERT_PATH="$HOME/.docker/machine/machines/dev1"
-    export DOCKER_MACHINE_NAME="dev1"
+    # export DOCKER_TLS_VERIFY="1"
+    # export DOCKER_HOST="tcp://192.168.99.100:2376"
+    # export DOCKER_CERT_PATH="$HOME/.docker/machine/machines/dev1"
+    # export DOCKER_MACHINE_NAME="dev1"
 
   # Configurations
 
@@ -182,6 +182,18 @@ function gclone(){
     reponame=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//');
     git clone $url $reponame;
     cd $reponame;
+}
+
+function nombom() {
+  local installer="npm"
+  if [ -f ./yarn.lock ]; then
+    installer="yarn"
+  fi
+  npm cache clear &&
+    bower cache clean &&
+    rm -rf node_modules bower_components &&
+    $installer install &&
+    bower install
 }
 
 # Aliases
