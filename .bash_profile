@@ -1,11 +1,5 @@
-JAMES_VAR=5
-
-
 CDPATH=/Users/james/Development/
-export PATH="$PATH:/usr/local/share/npm/bin"
-export PATH="$PATH:/Users/james/npm/bin/"
 #export PATH="$PATH:/usr/local/bin/mongod" homebrew already links it
-export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
 
 # Configuring Our Prompt
@@ -232,6 +226,7 @@ function nombom() {
   alias rh="ssh ubuntu@jobs.rhinoserve.com"
 
   alias james-api="ssh ec2-user@54.88.231.130"
+  alias git="hub"
   
 # Final Configurations and Plugins
 # =====================
