@@ -59,14 +59,14 @@ nnoremap <leader>sv :source $MYVIMRC<ENTER>
 nnoremap <leader>u :UltiSnipsEdit<ENTER>
 
 "color solarized light
-" syntax enable
-" set background=light
-" colorscheme solarized
+syntax enable
+set background=light
+colorscheme solarized
 
 "enable solarized dark
-syntax enable
-set background=dark
-colorscheme solarized
+" syntax enable
+" set background=dark
+" colorscheme solarized
 
 "put swp in ~/.vim instead of project dir
 set dir=~/.vim
@@ -76,6 +76,9 @@ set dir=~/.vim
 "Ag
 nnoremap <D-F> :Ag<Space>
 nnoremap <leader><D-F> :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" ARGWrAP
+nnoremap <silent> <leader>a :ArgWrap<CR>
 
 "Commentary
 noremap <D-/> :Commentary<ENTER>
@@ -97,7 +100,7 @@ let g:rspec_runner = "os_x_iterm2"
 map <Leader>w :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<leader><tab>"
@@ -113,7 +116,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_quiet_messages = { "level" : "warnings" }
 let g:syntastic_html_tidy_ignore_errors = [ '<template> is not recognized!' ]
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+let g:syntastic_ignore_files = ['min.js']
 
 " Vim Vinegar
 let NERDTreeHijackNetrw = 1
