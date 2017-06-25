@@ -54,6 +54,9 @@
   l = "!. ~/james_dot_files/.githelpers && pretty_git_log"
   la = !git l --all
 
+  prev = checkout HEAD^1
+  next = "!sh -c 'git log --reverse --pretty=%H master | awk \"/$(git rev-parse HEAD)/{getline;print}\" | xargs git checkout'"
+
 [github]
   user = James
   token = <API token> # https://github.com/settings/applications
