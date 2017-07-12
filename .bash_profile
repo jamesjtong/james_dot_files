@@ -94,6 +94,7 @@ export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
     # Read http://blog.seldomatt.com/blog/2012/10/08/bash-and-the-one-true-path/ for more on that.
     export PATH="$USR_PATHS:$PYTHON_SHARE:$PATH"
 
+    export SPD_API_TOKEN="0j1baaw4hwmp49ii0328kpm9zhlodo"
     # If you go into your shell and type: $PATH you will see the output of your current path.
     # For example, mine is:
     # /Users/avi/.rvm/gems/ruby-1.9.3-p392/bin:/Users/avi/.rvm/gems/ruby-1.9.3-p392@global/bin:/Users/avi/.rvm/rubies/ruby-1.9.3-p392/bin:/Users/avi/.rvm/bin:/usr/local:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/local/mysql/bin:/usr/local/share/python:/bin:/usr/sbin:/sbin:
