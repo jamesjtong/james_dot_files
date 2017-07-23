@@ -94,6 +94,9 @@ export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
     # Read http://blog.seldomatt.com/blog/2012/10/08/bash-and-the-one-true-path/ for more on that.
     export PATH="$USR_PATHS:$PYTHON_SHARE:$PATH"
 
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
     export SPD_API_TOKEN="0j1baaw4hwmp49ii0328kpm9zhlodo"
     # If you go into your shell and type: $PATH you will see the output of your current path.
     # For example, mine is:
