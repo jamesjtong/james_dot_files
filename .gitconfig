@@ -1,89 +1,17 @@
-[credential]
-  helper = osxkeychain
+[user]
+	name = jamesjtong
+	email = jtong33@gmail.com
+[init]
+	templatedir = ~/.git_template
 [core]
-  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-  excludesfile = /Users/james/.gitignore
-  editor = subl -n -w
+	excludesfile = /Users/jtong/.gitignore
 [alias]
-  st = status
-  ci = commit
-  br = branch
   co = checkout
-  df = diff
-  di = diff
-  dc = diff --cached
-  amend = commit --amend
-  aa = add --all
-  pom = push origin master
-  lg = log -p
-  who = shortlog -s --
-  up = pull
-  pr = pull --rebase
-  pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
-  switch = !legit switch \"$@\"
-  branches = !legit branches
-  sprout = !legit sprout \"$@\"
-  unpublish = !legit unpublish \"$@\"
-  harvest = !legit harvest \"$@\"
-  sync = !legit sync \"$@\"
-  publish = !legit publish \"$@\"
-  graft = !legit graft \"$@\"
-
-  ds = diff --stat=160,120
-  dh1 = diff HEAD~1
-
-  # Divergence (commits we added and commits remote added)
-  div = divergence
-
-  # Goodness (summary of diff lines added/removed/total)
-  gn = goodness
-  gnc = goodness --cached
-
-  # Fancy logging.
-  #   h = head
-  #   hp = head with patch
-  #   r = recent commits, only current branch
-  #   ra = recent commits, all reachable refs
-  #   l = all commits, only current branch
-  #   la = all commits, all reachable refs
-  head = !git r -1
-  h = !git head
-  hp = "!. ~/james_dot_files/.githelpers && show_git_head"
-  r = !GIT_NO_PAGER=1 git l -30
-  ra = !git r --all
-  l = "!. ~/james_dot_files/.githelpers && pretty_git_log"
-  la = !git l --all
-
+  ci = commit
+  st = status
+  br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
   prev = checkout HEAD^1
   next = "!sh -c 'git log --reverse --pretty=%H master | awk \"/$(git rev-parse HEAD)/{getline;print}\" | xargs git checkout'"
-
-[github]
-  user = James
-  token = <API token> # https://github.com/settings/applications
-  email = jtong33@gmail.com
-[github "user"]
-  user = jamesjtong
-  token = <API token>
-  email = jtong33
-[user]
-  name = jamesjtong
-  email = jtong@yhmg.com
-[color]
-  ui = true
-  diff = auto
-  status = auto
-  branch = auto
-[format]
-  pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
-[diff "ruby"]
-  funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
-[push]
-  default = current
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
-[mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
-[merge]
-  tool = opendiff
