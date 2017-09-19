@@ -121,3 +121,6 @@ let g:syntastic_ignore_files = ['min.js']
 
 " Vim Vinegar
 let NERDTreeHijackNetrw = 1
+
+" Vim Rainbow Parens
+let g:rainbow_active = 1
