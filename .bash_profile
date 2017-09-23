@@ -29,6 +29,14 @@ export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
   # Finally call the function and our prompt is all pretty
   prompt
 
+  # ITERM 2
+  test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+  # FOR ITERM 2 SHELL INTEGRATION bash: Place this in .bashrc.
+  function iterm2_print_user_vars() {
+    iterm2_set_user_var currentDir $(basename "$PWD")
+  }
+
 
 # Environment Variables
 # =====================
