@@ -1,6 +1,6 @@
 CDPATH=/Users/james/Development/
 #export PATH="$PATH:/usr/local/bin/mongod" homebrew already links it
-export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
+export PATH=/Users/james/Development/code/activator-1.2.10-minimal:/Users/james/.local/bin:$PATH
 
 # Configuring Our Prompt
 # ======================
@@ -51,7 +51,9 @@ export PATH=/Users/james/Development/code/activator-1.2.10-minimal:$PATH
     # PYTHON_SHARE
     # Python Shared Path from Homebrew I believe
     export PYTHON_SHARE='/usr/local/share/python'
-    export NODE_ENV='development'
+
+    # at JET they call it local, change back to development later
+    export NODE_ENV='local'
     # Those NODE & Python Paths won't break anything even if you
     # don't have NODE or Python installed. Eventually you will and
     # then you don't have to update your bash_profile
