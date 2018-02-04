@@ -116,7 +116,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_html_tidy_quiet_messages = { "level" : "warnings" }
 let g:syntastic_html_tidy_ignore_errors = [ '<template> is not recognized!' ]
-let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_ignore_files = ['min.js']
 let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 
