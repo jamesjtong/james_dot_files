@@ -3,6 +3,7 @@ Helptags
 syntax on
 filetype plugin indent on
 
+set timeout timeoutlen=3000 ttimeoutlen=100
 
 "SETTINGS
 
@@ -105,20 +106,34 @@ map <Leader>l :call RunLastSpec()<CR>
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<leader><tab>"
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" " Syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_html_tidy_quiet_messages = { "level" : "warnings" }
-let g:syntastic_html_tidy_ignore_errors = [ '<template> is not recognized!' ]
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_ignore_files = ['min.js']
-let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 1
+" let g:syntastic_html_tidy_quiet_messages = { "level" : "warnings" }
+" let g:syntastic_html_tidy_ignore_errors = [ '<template> is not recognized!' ]
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_ignore_files = ['min.js']
+" let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
+
+" Ale
+let g:ale_fixers = { 'javascript': ['eslint'] }
+
+" consider turning off lint on text changed above when conserving battery
+let g:ale_lint_on_text_changed = 1
+let g:ale_lint_on_save = 1
+"
+" Set this setting in vimrc if you want to fix files automatically on save.
+" This is off by default.
+let g:ale_fix_on_save = 1
+
+let g:ale_open_list = 1
+" let g:ale_keep_list_window_open = 1
 
 " Vim Vinegar
 let NERDTreeHijackNetrw = 1
