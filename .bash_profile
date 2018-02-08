@@ -54,6 +54,7 @@ export PATH=/Users/james/Development/code/activator-1.2.10-minimal:/Users/james/
 
     # at JET they call it local, change back to development later
     export NODE_ENV='local'
+    export VAULT_ADDR='https://eastus2.vault.dev.jet.network:8200'
     # Those NODE & Python Paths won't break anything even if you
     # don't have NODE or Python installed. Eventually you will and
     # then you don't have to update your bash_profile
