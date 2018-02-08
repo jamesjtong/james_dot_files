@@ -125,7 +125,7 @@ let g:UltiSnipsExpandTrigger="<leader><tab>"
 let g:ale_fixers = { 'javascript': ['eslint'] }
 
 " consider turning off lint on text changed above when conserving battery
-let g:ale_lint_on_text_changed = 1
+let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 "
 " Set this setting in vimrc if you want to fix files automatically on save.
@@ -133,7 +133,9 @@ let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 
 let g:ale_open_list = 1
+" let g:ale_lint_delay = 5000
 " let g:ale_keep_list_window_open = 1
+"
 
 " Vim Vinegar
 let NERDTreeHijackNetrw = 1
