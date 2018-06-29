@@ -227,6 +227,10 @@ function nombom() {
   alias gclean='gstale && gprune'
   alias grmnew='git clean -fd'
 
+  #LOG
+  alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+
   # VAGRANT
 
   alias vgs='vagrant global-status'
