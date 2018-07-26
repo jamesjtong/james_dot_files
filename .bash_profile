@@ -1,6 +1,6 @@
-CDPATH=/Users/james/Development/
+CDPATH=/Users/$USER/Development/
 #export PATH="$PATH:/usr/local/bin/mongod" homebrew already links it
-export PATH=/Users/james/Development/code/activator-1.2.10-minimal:/Users/james/.local/bin:$PATH
+export PATH=/Users/$USER/Development/code/activator-1.2.10-minimal:/Users/$USER/.local/bin:$PATH
 
 # Configuring Our Prompt
 # ======================
