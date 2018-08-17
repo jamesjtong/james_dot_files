@@ -3,4 +3,5 @@ set showmatch "show matching parenthesis/braces
 set nowrap "dont wrap lines
 set backspace=indent,eol,start    " backspace through everything in insert mode
 set ignorecase "ignore case when searching
+set surround "change surround plugin enabled for ideavim
 
