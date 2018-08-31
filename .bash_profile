@@ -248,6 +248,11 @@ function nombom() {
   alias james-api="ssh ec2-user@54.88.231.130"
   alias git="hub"
   
+  
+  #===== GFR
+  alias ybl="yarn build-library"
+  alias ybls="yarn build-libraries"
+  
 # Final Configurations and Plugins
 # =====================
   # Git Bash Completion
