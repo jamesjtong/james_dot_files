@@ -260,6 +260,9 @@ function nombom() {
   alias ybl="yarn build-library"
   alias ybls="yarn build-libraries"
   alias e2ed="yarn e2e --debugOnFail --e2eConcurrency=1"
+
+  alias yarn-links="( ls -l node_modules ; ls -l node_modules/@* ) | grep ^l"
+
 # Final Configurations and Plugins
 # =====================
   # Git Bash Completion
