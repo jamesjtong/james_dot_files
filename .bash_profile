@@ -37,6 +37,11 @@ export PATH=/Users/$USER/Development/code/activator-1.2.10-minimal:/Users/$USER/
     iterm2_set_user_var currentDir $(basename "$PWD")
   }
 
+  # start important docker containers
+  function start_containers() {
+    dockhub jiujitsu eureka fig security littlebus elasticsearch ratingsreviews:s lepont:s
+  }
+
 
 # Environment Variables
 # =====================
@@ -108,6 +113,9 @@ export PATH=/Users/$USER/Development/code/activator-1.2.10-minimal:/Users/$USER/
 
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+    
 
     export SPD_API_TOKEN="0j1baaw4hwmp49ii0328kpm9zhlodo"
     # If you go into your shell and type: $PATH you will see the output of your current path.
@@ -247,12 +255,11 @@ function nombom() {
 
   alias james-api="ssh ec2-user@54.88.231.130"
   alias git="hub"
-  
-  
+
   #===== GFR
   alias ybl="yarn build-library"
   alias ybls="yarn build-libraries"
-  
+  alias e2ed="yarn e2e --debugOnFail --e2eConcurrency=1"
 # Final Configurations and Plugins
 # =====================
   # Git Bash Completion
