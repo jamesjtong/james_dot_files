@@ -214,6 +214,10 @@ function nombom() {
     bower install
 }
 
+function es_delete_indices() {
+  curl -XDELETE 'http://elasticsearch.localnet:9200/_all'
+}
+
 # Aliases
 # =====================
   # LS
