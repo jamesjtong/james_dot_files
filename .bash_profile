@@ -267,6 +267,9 @@ function es_delete_indices() {
 
   alias yarn-links="( ls -l node_modules ; ls -l node_modules/@* ) | grep ^l"
 
+  # GRUBHUB
+  export CQLSH_NO_BUNDLED=TRUE
+
 # Final Configurations and Plugins
 # =====================
   # Git Bash Completion
