@@ -38,7 +38,7 @@ export PATH=/Users/$USER/Development/code/activator-1.2.10-minimal:/Users/$USER/
   }
 
   # start important docker containers
-  function start_containers() {
+  function start() {
     dockhub jiujitsu eureka fig security littlebus elasticsearch ratingsreviews:s lepont:s
   }
 
